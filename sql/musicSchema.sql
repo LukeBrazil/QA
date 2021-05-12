@@ -36,10 +36,22 @@ use musicdb;
 SHOW TABLES;
 desc artists;
 
+#CREATE
 INSERT INTO artists(artist_name, artist_category, artist_language) values('VAN HALEN', 'Rock', 'English');
-SELECT * FROM artists;
 INSERT INTO artists(artist_name, artist_category, artist_language) values('Drake', 'Hip Hop', 'English');
+INSERT INTO artists(artist_name, artist_category, artist_language) values('Stevie Ray Vaughn', 'Rock', 'English');
 INSERT INTO albums(album_name, album_release, fk_artist_id) values('Nothing Was the Same', '2013-09-24', 2);
-SELECT * FROM albums;
 INSERT INTO tracks(track_length, track_title, fk_artist_id, fk_album_id) values(3, 'Gods Plan', 2, 1);
-SELECT * FROM tracks;
+
+
+#READ
+SELECT * FROM artists;
+
+#UPDATE
+UPDATE artists
+SET artist_name = 'Van Halen'
+WHERE artist_id = 1;
+
+#DELETE
+DELETE FROM artists
+WHERE artist_id = 3;
