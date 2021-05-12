@@ -34,4 +34,10 @@ SELECT * FROM CUSTOMERS;
 INSERT INTO products(product_name, product_price) values('iPhone 11', 134.85);
 SELECT * FROM products;
 INSERT INTO orders(fk_customer_id, fk_product_id, order_quantity) values (1, 1, 25);
+SELECT * FROM orders
+ALTER TABLE orders ADD date_ordered DATETIME NOT NULL DEFAULT current_timestamp;
+INSERT INTO orders(fk_customer_id, fk_product_id, order_quantity) values (1, 1, 2);
 SELECT * FROM orders;
+SELECT orders.order_id, customers.customer_id, customers.first_name, customers.last_name, customers.address
+FROM orders
+INNER JOIN customers on orders.fk_customer_id=customers.customer_id;
