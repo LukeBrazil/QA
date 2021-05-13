@@ -28,10 +28,10 @@ SELECT first_name, last_name FROM actor WHERE last_name LIKE '%son%' ORDER BY fi
 # 3) Using HAVING COUNT, reverse-alphabetically list the last names that are not repeated.
 SELECT last_name, COUNT(*) c FROM actor GROUP BY last_name HAVING c < 2 ORDER BY last_name DESC;
 # 4) Which actor has appeared in the most films? (HINT: use joins, COUNT() and GROUP BY)
-SELECT actor_id, COUNT(*) c from film_actor GROUP BY actor_id HAVING c > 2 ORDER BY c DESC LIMIT 1;
-SELECT first_name, last_name, actor.actor_id
-from actor
-INNER JOIN film_actor
-ON actor.actor_id = film_actor.actor_id;
-
-Error Code: 1452. Cannot add or update a child row: a foreign key constraint fails (`schooldb`.`enrollment`, CONSTRAINT `enrollment_ibfk_2` FOREIGN KEY (`fk_class_id`) REFERENCES `students` (`student_id`))
+SELECT fa.actor_id, COUNT(*) c, a.first_name, a.last_name 
+from film_actor fa 
+INNER JOIN actor a 
+ON a.actor_id = fa.actor_id 
+GROUP BY actor_id 
+HAVING c > 2 
+ORDER BY c DESC LIMIT 1;
