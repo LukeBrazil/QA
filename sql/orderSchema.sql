@@ -41,3 +41,4 @@ SELECT * FROM orders;
 SELECT orders.order_id, customers.customer_id, customers.first_name, customers.last_name, customers.address
 FROM orders
 INNER JOIN customers on orders.fk_customer_id=customers.customer_id;
+-- ;
