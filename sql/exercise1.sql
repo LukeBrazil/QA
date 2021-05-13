@@ -33,3 +33,5 @@ SELECT first_name, last_name, actor.actor_id
 from actor
 INNER JOIN film_actor
 ON actor.actor_id = film_actor.actor_id;
+
+Error Code: 1452. Cannot add or update a child row: a foreign key constraint fails (`schooldb`.`enrollment`, CONSTRAINT `enrollment_ibfk_2` FOREIGN KEY (`fk_class_id`) REFERENCES `students` (`student_id`))
